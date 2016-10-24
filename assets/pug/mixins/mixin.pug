@@ -1,0 +1,115 @@
+//- +post ({
+//- 	categoryList: [
+//- 		{
+//- 			category: 'category'
+//- 		},
+//- 		{
+//- 			category: 'category'
+//- 		}
+//- 	],
+//- 	imgName: 'imgName',
+//- 	title: 'title',
+//- 	text: 'text',
+//- 	autor: 'autor',
+//- 	shareQuantity: 'shareQuantity'
+//- })
+mixin post(obj)
+	article.post-box
+		.picture-holder
+			a(href="#"): img(src="images/#{obj.imgName}.jpg", alt="image description")
+			ul.category-list
+				each listObj in obj.categoryList
+					li: a(href="#")= listObj.category
+		h2: a(href="#")= obj.title
+		.hidden-xs.hidden-sm.content-block
+			p= obj.text
+			ul.info-list
+				li.autor
+					| By
+					a(href="#")= obj.autor
+				li.share
+					b= obj.shareQuantity
+					|  SHARES
+
+//- +post-gallery ({
+//- 	categoryList: [
+//- 		{
+//- 			category: 'category'
+//- 		},
+//- 		{
+//- 			category: 'category'
+//- 		}
+//- 	],
+//- 	imgName: 'imgName',
+//- 	title: 'title',
+//- 	text: 'text',
+//- 	autor: 'autor',
+//- 	shareQuantity: 'shareQuantity'
+//- })
+mixin post-large(obj)
+	article.post-box
+		.picture-holder
+			a(href="#"): img(src="images/#{obj.imgName}.jpg", alt="image description")
+		.mobille-block
+			ul.category-list
+				each listObj in obj.categoryList
+					li: a(href="#")= listObj.category
+			h2: a(href="#")= obj.title
+			.hidden-xs.hidden-sm.content-block
+				p= obj.text
+				ul.info-list
+					li.autor
+						| By
+						a(href="#")= obj.autor
+						| &
+						a(href="#")= obj.autor02
+
+//- +post-list ({
+//- 	categoryList: [
+//- 		{
+//- 			category: 'category'
+//- 		},
+//- 		{
+//- 			category: 'category'
+//- 		}
+//- 	],
+//- 	imgName: 'imgName',
+//- 	title: 'title'
+//- })
+mixin post-list(obj)
+	article.post-box
+		.picture-holder
+			a(href="#"): img(src="images/#{obj.imgName}.jpg", alt="image description")
+		.content-holder
+			ul.category-list
+				each listObj in obj.categoryList
+					li: a(href="#")= listObj.category
+			h2: a(href="#")= obj.title
+
+//- +post-events ({
+//- 	categoryList: [
+//- 		{
+//- 			category: 'category'
+//- 		},
+//- 		{
+//- 			category: 'category'
+//- 		}
+//- 	],
+//- 	imgName: 'imgName',
+//- 	title: 'title',
+//- 	text: 'text',
+//- 	link: 'link'
+//- })
+mixin post-events(obj)
+	article.post-box
+		.picture-holder
+			a(href="#"): img(src="images/#{obj.imgName}.jpg", alt="image description")
+		.content-holder
+			ul.category-list
+				each listObj in obj.categoryList
+					li: a(href="#")= listObj.category
+			h2: a(href="#")= obj.title
+			.content-block.hidden-xs.hidden-sm
+				p
+					!= obj.text
+			a.more(href="#")= obj.link
